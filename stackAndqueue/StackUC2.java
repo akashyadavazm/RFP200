@@ -14,13 +14,12 @@ public class StackUC2 {
 		}
 	}
 
-	static class Stack {
 		public static Node head;
 		public static boolean isEmpty() {
 			return head == null;
 			
 		}
-		public static void push(int data) {
+		public void push(int data) {
 			Node newNode = new Node(data);
 			if(isEmpty()) {
 				head = newNode;
@@ -31,7 +30,7 @@ public class StackUC2 {
 			head = newNode;
 			
 		}
-		public static int pop() {
+		public int pop() {
 			if(isEmpty()) {
 				return -1;
 			}
@@ -39,23 +38,22 @@ public class StackUC2 {
 			head = head.next;
 			return top;
 		}
-		public static int peek() {
+		public int peek() {
 			if(isEmpty()) {
 				return -1;
 			}
 			return head.data;
 		}
 
-	}
-
 	public static void main(String[] args) {
 		
-		Stack s = new Stack();
+		StackUC2 s = new StackUC2();
+
 		s.push(70);
 		s.push(30);
 		s.push(56);
-		while(!s.isEmpty()) {
-			System.out.println(s.peek());
+		while(!StackUC2.isEmpty()) {
+			System.out.print(s.peek()+"-> ");
 			s.pop();
 		}
 

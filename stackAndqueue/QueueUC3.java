@@ -9,33 +9,45 @@ public class QueueUC3 {
 			this.data = data;
 			next = null;
 		}
+
 	}
 
-	static class Queue {
-		static Node head = null;
-		static Node tail = null;
+	static Node head = null;
+	static Node tail = null;
 
-		public static boolean isEmpty() {
-			return head == null & tail == null;
+	public static boolean isEmpty() {
+		return head == null & tail == null;
+	}
+
+	public void add(int data) {
+		Node newNode = new Node(data);
+		if (tail == null) {
+			tail = head = newNode;
+			return;
 		}
-		public static void add(int data) {
-			Node newNode = new Node(data);
-			if(tail == null) {
-				tail = head = newNode;
-				return;
+		tail.next = newNode;
+		tail = newNode;
+	}
+
+	public void display() {
+		Node temp = head;
+		if (head == null) {
+			System.out.println("Queue is Empty");
+		}else {
+			while(temp!=null) {
+				System.out.print(temp.data+"-> ");
+				temp = temp.next;
 			}
-			tail.next = newNode;
-			tail = newNode;
 		}
 	}
 
 	public static void main(String[] args) {
-		Queue q = new Queue();
+		QueueUC3 q = new QueueUC3();
 		q.add(56);
 		q.add(30);
 		q.add(70);
-		
-		System.out.println(q);
+
+		q.display();
 
 	}
 }
